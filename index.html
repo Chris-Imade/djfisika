@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//fonts.googleapis.com/css?family=Lato:400,700%7COpen+Sans:400,600,700%7CSource+Code+Pro:300,400,500,600,700,900%7CNothing+You+Could+Do%7CPoppins:400,500"
+    />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .ie-panel {
+        display: none;
+        background: #212121;
+        padding: 10px 0;
+        box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
+        clear: both;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      html.ie-10 .ie-panel,
+      html.lt-ie-10 .ie-panel {
+        display: block;
+      }
+      .osm-map-container {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        background: #f2f2f2;
+      }
+
+      .osm-map {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .osm-map-markers {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        pointer-events: none;
+      }
+
+      .marker {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        pointer-events: auto;
+      }
+
+      .marker-popup {
+        position: absolute;
+        background: white;
+        padding: 10px;
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+        z-index: 1000;
+        pointer-events: auto;
+      }
+
+      .marker:hover + .marker-popup {
+        display: block;
+      }
+
+      /* Hide logo by default (mobile) */
+      .desktop-only-logo {
+        display: none;
+      }
+
+      /* Show logo on desktop (using the same breakpoint as your navbar's static layout) */
+      @media (min-width: 1200px) {
+        /* xl breakpoint matching your rd-navbar-static */
+        .desktop-only-logo {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ie-panel">
+      <a href="http://windows.microsoft.com/en-US/internet-explorer/"
+        ><img
+          src="images/ie8-panel/warning_bar_0000_us.jpg"
+          height="42"
+          width="820"
+          alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."
+      /></a>
+    </div>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!--RD Navbar-->
+        <div class="rd-navbar-wrap" style="position: absolute">
+          <nav
+            class="rd-navbar rd-navbar-classic"
+            data-layout="rd-navbar-fixed"
+            data-sm-layout="rd-navbar-fixed"
+            data-md-layout="rd-navbar-fixed"
+            data-md-device-layout="rd-navbar-fixed"
+            data-lg-layout="rd-navbar-fixed"
+            data-lg-device-layout="rd-navbar-fixed"
+            data-xl-layout="rd-navbar-static"
+            data-xl-device-layout="rd-navbar-static"
+            data-xxl-layout="rd-navbar-static"
+            data-xxl-device-layout="rd-navbar-static"
+            data-lg-stick-up-offset="46px"
+            data-xl-stick-up-offset="46px"
+            data-xxl-stick-up-offset="46px"
+            data-lg-stick-up="true"
+            data-xl-stick-up="true"
+            data-xxl-stick-up="true"
+          >
+            <div
+              class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1"
+              data-rd-navbar-toggle=".rd-navbar-collapse"
+            >
+              <span></span>
+            </div>
+            <div class="rd-navbar-main-outer">
+              <div class="rd-navbar-main">
+                <!--RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!--RD Navbar Toggle-->
+                  <button
+                    class="rd-navbar-toggle"
+                    data-rd-navbar-toggle=".rd-navbar-nav-wrap"
+                  >
+                    <span></span>
+                  </button>
+                  <!--RD Navbar Brand-->
+                  <div class="rd-navbar-brand desktop-only-logo">
+                    <!--Brand--><a class="brand" href="index.html"
+                      ><img
+                        src="images/logo-default-296x52.jpeg"
+                        alt=""
+                        width="148"
+                        height="26"
+                    /></a>
+                  </div>
+                </div>
+                <div class="rd-navbar-main-element">
+                  <div class="rd-navbar-nav-wrap">
+                    <ul class="rd-navbar-nav">
+                      <li class="rd-nav-item active">
+                        <a class="rd-nav-link" href="index.html">Home</a>
+                      </li>
+                      <li class="rd-nav-item">
+                        <a class="rd-nav-link" href="about.html">About</a>
+                      </li>
+                      <li class="rd-nav-item">
+                        <a class="rd-nav-link" href="contacts.html">Contacts</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="rd-navbar-collapse">
+                  <ul class="socialite-list">
+                    <li>
+                      <a
+                        class="icon novi-icon socialite fa-facebook"
+                        href="https://www.facebook.com/share/15Zm6SK6hd/?mibextid=wwXIfr"
+                        target="_blank"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        class="icon novi-icon socialite fa-twitter"
+                        href="https://x.com/fadafisika?s=21"
+                        target="_blank"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        class="icon novi-icon socialite fa-instagram"
+                        href="https://www.instagram.com/fadafisika/profilecard/?igsh=ZHlsaTY0OWI0amJn"
+                        target="_blank"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        class="icon novi-icon socialite fa-youtube"
+                        href="https://youtube.com/@djfisika?si=C9nj1xcMP0LxsXtP"
+                        target="_blank"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        class="icon novi-icon socialite fa-brands fa-tiktok"
+                        href="https://www.tiktok.com/@fadafisika1?_t=ZG-8sePlpxefLN&_r=1"
+                        target="_blank"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        class="icon novi-icon socialite fa-spotify"
+                        href="https://open.spotify.com/user/31bxirjbnwe7tgh4drivdor2i3jq?si=qCeIWIQLSGyYzel6NqKwHQ"
+                        target="_blank"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        class="icon novi-icon socialite fa-apple"
+                        href="https://music.apple.com/gb/album/victor-uwafo-fada-mix-single/1777740012"
+                        target="_blank"
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!--Swiper-->
+      <section
+        class="section swiper-container swiper-slider swiper-slider-1"
+        data-loop="true"
+        data-autoplay="3892"
+        data-simulate-touch="false"
+      >
+        <div class="swiper-wrapper text-center">
+          <div
+            class="swiper-slide context-dark"
+            data-slide-bg="images/slider_01.jpg"
+          >
+            <div class="swiper-slide-caption section-md">
+              <div class="container">
+                <div class="row justify-content-lg-center">
+                  <div class="col-lg-8">
+                    <h5
+                      data-caption-animate="fadeInUp"
+                      data-caption-delay="100"
+                    >
+                      Curating Unforgettable Musical Experiences
+                    </h5>
+                    <h1
+                      data-caption-animate="fadeInUp"
+                      data-caption-delay="200"
+                    >
+                      Music is My Passion
+                    </h1>
+                    <div
+                      class="button-wrap"
+                      data-caption-animate="fadeInUp"
+                      data-caption-delay="300"
+                    >
+                      <!-- <a class="button button-modern button-custom-size-1" href="#">Explore Events</a> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-slide context-dark"
+            data-slide-bg="images/slider_02.webp"
+          >
+            <div class="swiper-slide-caption section-md">
+              <div class="container">
+                <div class="row justify-content-lg-center">
+                  <div class="col-lg-8">
+                    <h5
+                      data-caption-animate="fadeInUp"
+                      data-caption-delay="100"
+                    >
+                      Connecting Cultures Through Sound
+                    </h5>
+                    <h1
+                      data-caption-animate="fadeInUp"
+                      data-caption-delay="200"
+                    >
+                      Your Afrobeat Maestro
+                    </h1>
+                    <div
+                      class="button-wrap"
+                      data-caption-animate="fadeInUp"
+                      data-caption-delay="300"
+                    >
+                      <!-- <a class="button button-modern button-custom-size-1" href="#">See All Events</a> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-slide context-dark"
+            data-slide-bg="images/slider_03.jpg"
+          >
+            <div class="swiper-slide-caption section-md">
+              <div class="container">
+                <div class="row justify-content-lg-center">
+                  <div class="col-lg-8">
+                    <h5
+                      data-caption-animate="fadeInUp"
+                      data-caption-delay="100"
+                    >
+                      Innovating the Art of DJing
+                    </h5>
+                    <h1
+                      data-caption-animate="fadeInUp"
+                      data-caption-delay="200"
+                    >
+                      Experience World-Class DJ Skills
+                    </h1>
+                    <div
+                      class="button-wrap"
+                      data-caption-animate="fadeInUp"
+                      data-caption-delay="300"
+                    >
+                      <!-- <a class="button button-modern button-custom-size-1" href="#">Discover Performances</a> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Swiper Pagination-->
+        <div class="swiper-pagination"></div>
+      </section>
+
+      <section
+        class="parallax-container section-lg text-center"
+        data-parallax-img="images/bg-home1-01-1920x1000.jpg"
+      >
+        <div class="parallax-content">
+          <div class="container">
+            <h6 class="text-gray-600">
+              Afrobeat Night in Northampton, UK - March 15, 2024
+            </h6>
+            <h2>featured event</h2>
+            <div class="row justify-content-center">
+              <div class="col-lg-11">
+                <div class="post-event">
+                  <div
+                    class="countdown"
+                    data-type="until"
+                    data-time="15 Mar 2024 20:00"
+                  ></div>
+                  <img
+                    src="images/events-02-571x313.jpg"
+                    alt="DJ FISIKA Live Event"
+                    width="571"
+                    height="156"
+                  />
+                  <a class="button button-primary button-lg" href="#"
+                    >Buy Tickets</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="section section-lg bg-default text-center">
+        <div class="container">
+          <h6 class="text-gray-600">latest videos from me and my colleagues</h6>
+          <h2>recent videos</h2>
+          <div class="tabs-custom tabs-vertical tabs-video" id="tabs-2">
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="tabs-2-1">
+                <div
+                  class="entry-video embed-responsive embed-responsive-16by9"
+                >
+                  <iframe
+                    width="886"
+                    height="668"
+                    src="//www.youtube.com/embed/4gRjnaitguQ"
+                    allowfullscreen=""
+                  ></iframe>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tabs-2-2">
+                <div
+                  class="entry-video embed-responsive embed-responsive-16by9"
+                >
+                  <iframe
+                    width="886"
+                    height="668"
+                    src="//www.youtube.com/embed/mfMR-URQl80"
+                    allowfullscreen=""
+                  ></iframe>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tabs-2-3">
+                <div
+                  class="entry-video embed-responsive embed-responsive-16by9"
+                >
+                  <iframe
+                    width="886"
+                    height="668"
+                    src="//www.youtube.com/embed/xweHsBLcqp4"
+                    allowfullscreen=""
+                  ></iframe>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tabs-2-4">
+                <div
+                  class="entry-video embed-responsive embed-responsive-16by9"
+                >
+                  <iframe
+                    width="886"
+                    height="668"
+                    src="//www.youtube.com/embed/V3pPMUmIxAc"
+                    allowfullscreen=""
+                  ></iframe>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tabs-2-5">
+                <div
+                  class="entry-video embed-responsive embed-responsive-16by9"
+                >
+                  <iframe
+                    width="886"
+                    height="668"
+                    src="//www.youtube.com/embed/N1DEOCUujUg"
+                    allowfullscreen=""
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="scroll-wrap">
+              <ul class="nav nav-tabs">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" href="#tabs-2-1" data-toggle="tab">
+                    <div class="nav-video">
+                      <figure class="nav-video-figure">
+                        <img
+                          src="images/video-01-140x81.jpg"
+                          alt=""
+                          width="140"
+                          height="40"
+                        />
+                      </figure>
+                      <h6 class="nav-video-title">
+                        Armin van Buuren Live at Tomorrowland 2015
+                      </h6>
+                    </div></a
+                  >
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" href="#tabs-2-2" data-toggle="tab">
+                    <div class="nav-video">
+                      <figure class="nav-video-figure">
+                        <img
+                          src="images/video-02-140x81.jpg"
+                          alt=""
+                          width="140"
+                          height="40"
+                        />
+                      </figure>
+                      <h6 class="nav-video-title">
+                        Juicy M - Live at MEO Sudoeste Festival
+                      </h6>
+                    </div></a
+                  >
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" href="#tabs-2-3" data-toggle="tab">
+                    <div class="nav-video">
+                      <figure class="nav-video-figure">
+                        <img
+                          src="images/video-03-140x81.jpg"
+                          alt=""
+                          width="140"
+                          height="40"
+                        />
+                      </figure>
+                      <h6 class="nav-video-title">
+                        Armin van Buuren feat. Angel Taylor - Make It Right
+                      </h6>
+                    </div></a
+                  >
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" href="#tabs-2-4" data-toggle="tab">
+                    <div class="nav-video">
+                      <figure class="nav-video-figure">
+                        <img
+                          src="images/video-04-140x81.jpg"
+                          alt=""
+                          width="140"
+                          height="40"
+                        />
+                      </figure>
+                      <h6 class="nav-video-title">
+                        Armin Only crew taking over Sydney! Armin Only VLOG
+                      </h6>
+                    </div></a
+                  >
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" href="#tabs-2-5" data-toggle="tab">
+                    <div class="nav-video">
+                      <figure class="nav-video-figure">
+                        <img
+                          src="images/video-05-140x81.jpg"
+                          alt=""
+                          width="140"
+                          height="40"
+                        />
+                      </figure>
+                      <h6 class="nav-video-title">
+                        Armin Only crew taking over San Francisco!
+                      </h6>
+                    </div></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <section class="section" data-lightgallery="group">
+        <div class="row no-gutters">
+          <div class="col-lg-3 col-sm-6">
+            <div class="thumbnail-classic">
+              <a
+                class="thumbnail-classic-figure"
+                data-lightgallery="item"
+                href="images/image-original-01-1200x800.jpg"
+                ><img
+                  src="images/home1-05-480x350.png"
+                  alt=""
+                  width="480"
+                  height="350"
+                  style="
+                    max-width: 480px;
+                    max-height: 250px;
+                    object-fit: cover;
+                  "
+              /></a>
+              <div class="thumbnail-classic-caption">
+                <h5 class="thumbnail-classic-title">Dream Village</h5>
+                <time class="thumbnail-classic-time" datetime="2019-09-19"
+                  >Sep 19, 2019</time
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="thumbnail-classic">
+              <a
+                class="thumbnail-classic-figure"
+                data-lightgallery="item"
+                href="images/image-original-02-1200x800.jpg"
+                ><img
+                  src="images/home1-06-480x350.png"
+                  alt=""
+                  width="480"
+                  height="350"
+                  style="
+                    max-width: 480px;
+                    max-height: 250px;
+                    object-fit: cover;
+                  "
+              /></a>
+              <div class="thumbnail-classic-caption">
+                <h5 class="thumbnail-classic-title">ULTRA MUSIC FESTIVAL</h5>
+                <time class="thumbnail-classic-time" datetime="2019-09-19"
+                  >Sep 19, 2019</time
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="thumbnail-classic">
+              <a
+                class="thumbnail-classic-figure"
+                data-lightgallery="item"
+                href="images/image-original-03-1200x800.jpg"
+                ><img
+                  src="images/home1-07-480x350.png"
+                  alt=""
+                  width="480"
+                  height="350"
+                  style="
+                    max-width: 480px;
+                    max-height: 250px;
+                    object-fit: cover;
+                  "
+              /></a>
+              <div class="thumbnail-classic-caption">
+                <h5 class="thumbnail-classic-title">electric Zoo</h5>
+                <time class="thumbnail-classic-time" datetime="2019-09-19"
+                  >Sep 19, 2019</time
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="thumbnail-classic">
+              <a
+                class="thumbnail-classic-figure"
+                data-lightgallery="item"
+                href="images/image-original-04-1200x800.jpg"
+                ><img
+                  src="images/home1-08-480x350.png"
+                  alt=""
+                  width="480"
+                  height="350"
+                  style="
+                    max-width: 480px;
+                    max-height: 250px;
+                    object-fit: cover;
+                  "
+              /></a>
+              <div class="thumbnail-classic-caption">
+                <h5 class="thumbnail-classic-title">life in color festival</h5>
+                <time class="thumbnail-classic-time" datetime="2019-09-19"
+                  >Sep 19, 2019</time
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="section section-xl bg-default text-center">
+        <div class="container">
+          <h6 class="text-gray-600">from my blog</h6>
+          <h2>latest news</h2>
+          <div class="row row-125">
+            <div class="col-md-6 col-lg-4">
+              <article class="post-classic">
+                <figure class="post-classic-figure">
+                  <a href="#"
+                    ><img
+                      src="images/post-classic-01-346x260.jpg"
+                      alt=""
+                      width="346"
+                      height="130"
+                  /></a>
+                </figure>
+                <div class="post-classic-content">
+                  <time class="post-classic-time" datetime="2019-09-19"
+                    >Sep 19, 2019</time
+                  >
+                  <h5 class="post-classic-title">
+                    <a href="#"
+                      >teasing the demo of my new track ‘I need you’</a
+                    >
+                  </h5>
+                  <a class="post-classic-link" href="#">read more</a>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="post-classic">
+                <figure class="post-classic-figure">
+                  <a href="#"
+                    ><img
+                      src="images/post-classic-02-346x260.jpg"
+                      alt=""
+                      width="346"
+                      height="130"
+                  /></a>
+                </figure>
+                <div class="post-classic-content">
+                  <time class="post-classic-time" datetime="2019-09-19"
+                    >Sep 19, 2019</time
+                  >
+                  <h5 class="post-classic-title">
+                    <a href="#">Bring your favorite artist to your city!</a>
+                  </h5>
+                  <a class="post-classic-link" href="#">read more</a>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="post-classic">
+                <figure class="post-classic-figure">
+                  <a href="#"
+                    ><img
+                      src="images/post-classic-03-346x260.jpg"
+                      alt=""
+                      width="346"
+                      height="130"
+                  /></a>
+                </figure>
+                <div class="post-classic-content">
+                  <time class="post-classic-time" datetime="2019-09-19"
+                    >Sep 19, 2019</time
+                  >
+                  <h5 class="post-classic-title">
+                    <a href="#">New single: ‘rave on’ (raverz 2019 anthem)</a>
+                  </h5>
+                  <a class="post-classic-link" href="#">read more</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- Banner 2-->
+
+      <section
+        class="parallax-container parallax-overlay-01"
+        data-parallax-img="images/bg-footer-1920x1285.jpg"
+      >
+        <div class="parallax-content">
+          <div class="section-sm prefooter-custom">
+            <div class="container">
+              <div class="row row-30">
+                <div class="col-lg-6">
+                  <!-- Google Map -->
+                  <div
+                    class="osm-map-container"
+                    data-center="Wellingborough, UK"
+                    data-zoom="13"
+                  >
+                    <iframe
+                      class="osm-map"
+                      src="https://www.openstreetmap.org/export/embed.html?bbox=-0.7155990600585938%2C52.27491833155371%2C-0.6633377075195313%2C52.31175961077573&amp;layer=mapnik"
+                    ></iframe>
+                    <ul class="osm-map-markers">
+                      <li
+                        data-location="52.2933,-0.6895"
+                        data-description="Wellingborough Town Centre"
+                      >
+                        <div
+                          class="marker"
+                          style="
+                            background-image: url('images/gmap_marker-1.png');
+                            left: 50%;
+                            top: 50%;
+                          "
+                        ></div>
+                        <div class="marker-popup">
+                          Wellingborough Town Centre
+                        </div>
+                      </li>
+                      <!-- Add more markers following the same pattern -->
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-lg-6" style="min-height: 600px">
+                  <h3>Where to Find Us</h3>
+                  <p>
+                    DJ FISIKA is based in Wellingborough, Northamptonshire, UK.
+                    Whether you’re looking to book for an event or catch a live
+                    performance, DJ FISIKA is just a call or message away. Stay
+                    connected through our social media platforms or visit us at
+                    our next show for an unforgettable Afrobeat experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Floating WhatsApp Button -->
+      <a
+        href="https://wa.me/447858131766?text=Hello%20DJ%20FISIKA!%20I%20would%20like%20to%20inquire%20about%20your%20services."
+        class="whatsapp-float"
+        target="_blank"
+        title="Chat with DJ FISIKA on WhatsApp"
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          alt="WhatsApp"
+          style="width: 30px; height: 30px"
+        />
+      </a>
+
+      <!-- CSS for Floating Button -->
+      <style>
+        .whatsapp-float {
+          position: fixed;
+          width: 50px;
+          height: 50px;
+          bottom: 90px;
+          right: 60px;
+          background-color: #25d366;
+          color: #fff;
+          border-radius: 100%;
+          text-align: center;
+          font-size: 30px;
+          z-index: 1000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .whatsapp-float:hover {
+          background-color: #128c7e;
+        }
+      </style>
+
+      <footer class="section footer-classic bg-default">
+        <div class="container">
+          <div class="row row-15">
+            <div class="col-sm-6">
+              <p class="rights">
+                <span>DJ FISIKA</span><span>&nbsp;</span
+                ><span>&copy;&nbsp;</span><span class="copyright-year"></span
+                ><span>&nbsp;</span><span>\&nbsp;</span>All Rights Reserved |
+                Website by
+                <a href="https://clevercode.pages.dev/"
+                  >CleverCode Technologies</a
+                >
+              </p>
+            </div>
+            <div class="col-sm-6">
+              <div class="footer-contact">
+                <a href="contacts.html">
+                  <div class="icon novi-icon mdi mdi-email-outline"></div>
+                  Get in Touch</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      window.chtlConfig = { chatbotId: "3762712989" };
+    </script>
+    <script
+      async
+      data-id="3762712989"
+      id="chatling-embed-script"
+      type="text/javascript"
+      src="https://chatling.ai/js/embed.js"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Function to convert coordinates to pixel positions
+        function coordsToPixels(
+          lat,
+          lng,
+          mapBounds,
+          containerWidth,
+          containerHeight
+        ) {
+          const lngRange = mapBounds.maxLng - mapBounds.minLng;
+          const latRange = mapBounds.maxLat - mapBounds.minLat;
+
+          const x = ((lng - mapBounds.minLng) / lngRange) * containerWidth;
+          const y = ((mapBounds.maxLat - lat) / latRange) * containerHeight;
+
+          return { x, y };
+        }
+
+        // Initialize markers
+        const markers = document.querySelectorAll(".osm-map-markers li");
+        const container = document.querySelector(".osm-map-container");
+
+        // Map bounds for Wellingborough area
+        const mapBounds = {
+          minLat: 52.27491833155371,
+          maxLat: 52.31175961077573,
+          minLng: -0.7155990600585938,
+          maxLng: -0.6633377075195313,
+        };
+
+        markers.forEach((marker) => {
+          const location = marker.dataset.location.split(",");
+          const lat = parseFloat(location[0]);
+          const lng = parseFloat(location[1]);
+
+          const position = coordsToPixels(
+            lat,
+            lng,
+            mapBounds,
+            container.offsetWidth,
+            container.offsetHeight
+          );
+
+          const markerElement = marker.querySelector(".marker");
+          markerElement.style.left = `${position.x}px`;
+          markerElement.style.top = `${position.y}px`;
+        });
+
+        // Handle window resize
+        window.addEventListener("resize", function () {
+          markers.forEach((marker) => {
+            const location = marker.dataset.location.split(",");
+            const lat = parseFloat(location[0]);
+            const lng = parseFloat(location[1]);
+
+            const position = coordsToPixels(
+              lat,
+              lng,
+              mapBounds,
+              container.offsetWidth,
+              container.offsetHeight
+            );
+
+            const markerElement = marker.querySelector(".marker");
+            markerElement.style.left = `${position.x}px`;
+            markerElement.style.top = `${position.y}px`;
+          });
+        });
+      });
+    </script>
+    <!--coded by CleverCode-Technologies-->
+  </body>
+</html>
